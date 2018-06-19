@@ -11,9 +11,15 @@
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
 
+    <typeAliases>
+        <typeAlias type="com.nowcoder.model.Question" alias="Question"/>
+    </typeAliases>
+
+
     <mappers>
         <package name="mapper"/>
     </mappers>
+
 
 
 </configuration>

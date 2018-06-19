@@ -5,12 +5,16 @@
 
 <mapper namespace="com.nowcoder.dao.QuestionDao">
 
+
+
     <sql id="table">question</sql>
 
     <sql id="selectFields">id,title,content,comment_count,created_date,user_id</sql>
 
 
-    <select id="selectLatestQuestions" resultType="com.nowcoder.model.Question">
+
+<!--resultType 由于在mybatis-config.xml中配置了别名，可以不写全限定名-->
+    <select id="selectLatestQuestions" resultType="Question">
 
         SELECT
         <include refid="selectFields"/>
