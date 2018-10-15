@@ -50,7 +50,7 @@ public class LoginController {
                 cookie.setPath("/");
                 response.addCookie(cookie);
                 if (StringUtils.isNotBlank(next)){
-                    return "redirect:"+next;
+                    return "redirect:" + next;
                 }
                 return "redirect:/";
             }else{
