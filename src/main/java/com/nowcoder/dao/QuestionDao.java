@@ -24,10 +24,16 @@ public interface QuestionDao {
             ") values(#{title},#{content},#{createdDate},#{userId},#{commentCount})"})
     int addQuestion(Question question);
 
+    @Select({"select" , SELECT_FIELDS ,"from" ,TABLE_NAME ,"where id=#{id}"})
+    Question selectById(int id);
+
 
     List<Question> selectLatestQuestions(@Param("userId") int id,
                                          @Param("offset") int offset,
                                          @Param("limit") int limit);
 
+    @Update({"update ", TABLE_NAME ," set comment_count = #{CommentCount} where id = #{id}"})
+    int updateCommentCount(@Param("id")int id,
+                           @Param("CommentCount") int CommentCount);
 
 }
