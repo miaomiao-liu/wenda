@@ -108,7 +108,10 @@ public class UserService {
 
 
     public User getUser(int id){
-
         return userDao.selectById(id);
+    }
+
+    public User selectByName(String name){
+        return userDao.selectByName(name);
     }
 }
