@@ -23,6 +23,12 @@ public class JedisAdapter implements InitializingBean {
     private static final Logger logger = LoggerFactory.getLogger(JedisAdapter.class);
 
     private JedisPool pool;
+
+    public static void main(String[] args) {
+        int i = 0;
+        System.out.println(++i);
+
+    }
     /*
     private static void print(int i, Object object) {
         System.out.println(String.format("%d,%s", i, object.toString()));

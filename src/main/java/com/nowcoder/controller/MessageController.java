@@ -47,7 +47,7 @@ public class MessageController {
             List<ViewObject> conversations = new ArrayList<>();
             for (Message message : conversationList){
                 ViewObject vo = new ViewObject();
-                vo.set("conversation",message);
+                vo.set("message",message);
                 int targetId = message.getToId() == localUserId ? message.getFromId() : message.getToId();
                 vo.set("user",userService.getUser(targetId));
                 vo.set("unread",messageService.getConversationUnreadCount(localUserId,message.getConversationId()));
@@ -65,7 +65,8 @@ public class MessageController {
                                       Model model){
         try{
             List<Message> messageList = messageService.getConversationDetail(conversationId,0,10);
-            messageService.updateConversationRead(conversationId);
+            //只更新自己收到的消息是否已读
+            messageService.updateConversationRead(conversationId,hostHolder.getUser().getId());
             List<ViewObject> messages = new ArrayList<>();
             for (Message message : messageList){
                 ViewObject vo = new ViewObject();

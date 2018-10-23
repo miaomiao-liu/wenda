@@ -40,6 +40,7 @@ public interface MessageDao {
     int getConversationUnreadCount(@Param("conversationId") String conversationId,
                                    @Param("userId") int userId);
 
-    @Update({"update",TABLE_NAME,"set has_read = 1 where conversation_id = #{conversationId}"})
-    int updateConversationRead(String conversationId);
+    @Update({"update",TABLE_NAME,"set has_read = 1 where conversation_id = #{conversationId} and to_id = #{userId}"})
+    int updateConversationRead(@Param("conversationId") String conversationId,
+                               @Param("userId") int userId);
 }

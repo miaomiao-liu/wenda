@@ -18,6 +18,9 @@ public interface CommentDao {
     String INSERT_FIELDS = " user_id,content,created_date,entity_id,entity_type,status ";
     String SELECT_FIELDS = " id," +INSERT_FIELDS;
 
+    @Select({"select ", SELECT_FIELDS, "from", TABLE_NAME, "where id = #{id}"})
+    Comment selectCommentById(int id);
+
     @Insert({"insert into" , TABLE_NAME , "( " , INSERT_FIELDS , ") values (#{userId},#{content},#{createdDate},#{entityId},#{entityType},#{status})"})
     int addComment(Comment comment);
 

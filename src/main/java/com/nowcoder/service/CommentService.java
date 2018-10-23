@@ -37,6 +37,11 @@ public class CommentService {
     }
 
     public int deleteComment(int commentId) {
-        return commentDao.updateStatus(commentId,1);
+        return commentDao.updateStatus(commentId, 1);
+    }
+
+    public Comment getCommentById(int id) {
+        return commentDao.selectCommentById(id);
     }
 }
+
